@@ -13,6 +13,8 @@ interface User {
 }
 
 interface UserContextValue {
+  usersPagination: User[];
+  setUsersPagination: React.Dispatch<React.SetStateAction<User[]>>;
   users: User[];
   setUsers: React.Dispatch<React.SetStateAction<User[]>>;
   gender: string;
@@ -22,6 +24,8 @@ interface UserContextValue {
 }
 
 export const UserContext = createContext<UserContextValue>({
+  usersPagination: [],
+  setUsersPagination: () => {},
   users: [],
   setUsers: () => {},
   gender: "",
@@ -34,7 +38,7 @@ export const UserContextProvider = ({ children }: UserContextProps) => {
   const [users, setUsers] = useState<User[]>([]);
   const [gender, setGender] = useState("");
   const [nat, setNat] = useState("");
-
+  const [usersPagination, setUsersPagination] = useState<User[]>([]);
   const setUsersFn = async () => {
     const users = await getAllUsers(nat, gender)
     setUsers(users.results);
@@ -51,6 +55,8 @@ export const UserContextProvider = ({ children }: UserContextProps) => {
     setGender,
     nat,
     setNat,
+    usersPagination,
+    setUsersPagination
   };
 
   return (
