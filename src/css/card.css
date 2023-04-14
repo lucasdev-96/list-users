@@ -1,10 +1,26 @@
-.icons {
-    color: black;
-}
 
-.card-user{
+
+.card-user-img{
     width: 230px;
 }
 .spanInfos {
     font-weight: 600;
+}
+
+.card-user {
+    width: 25rem;
+}
+
+@media (max-width: 900px)
+{
+    .card-user {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 653px)
+{
+    .card-user {
+        width: 15rem;
+    }
 }

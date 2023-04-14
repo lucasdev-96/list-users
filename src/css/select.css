@@ -1,6 +1,10 @@
-.selectCountry {
-    border-radius: 10px;
-    margin-left: 10px;
+.rrs__button {
     background-color: #212529;
     color: white;
+    height: 37px;
+
+}
+
+.rrs {
+    margin-left: 10px;
 }

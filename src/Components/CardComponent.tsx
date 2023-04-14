@@ -24,8 +24,8 @@ function CardComponent() {
 
     }, [])
   return (
-    <Card style={{ width: '25rem'}} border='secondary'>
-      <Card.Img variant="top" className='card-user' bsPrefix='card-user' src={user.picture.large} />
+    <Card  className='card-user'  border='secondary'>
+      <Card.Img variant="top" className='card-user-img' bsPrefix='card-user-img' src={user.picture.large} />
       <Card.Body>
         <Card.Title>{`${user.name.title} ${user.name.first} ${user.name.last} `}</Card.Title>
       </Card.Body>

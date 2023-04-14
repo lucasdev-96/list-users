@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { User } from './Pages/User';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-responsive-select/dist/react-responsive-select.css';
 import { Home } from './Pages/Home';
 import { UserContextProvider } from './Context/UserContextProvider';
 const router = createBrowserRouter([

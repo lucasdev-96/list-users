@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { GoEye } from 'react-icons/go'
 
 function TableComponent() {
-  const {usersPagination, setUser} = useContext(UserContext)
+  const {usersPagination} = useContext(UserContext)
   const returnUsers = () => {
     return usersPagination ? usersPagination.map((value: any, index: number) => {
       return (
@@ -24,7 +24,7 @@ function TableComponent() {
   }
   return (
     <>
-    {usersPagination.length > 0 ? <Table responsive="lg"  striped bordered hover variant="dark">
+    {usersPagination.length > 0 ? <Table responsive  striped bordered hover variant="dark">
       <thead>
         <tr>
           <th>#</th>
@@ -38,7 +38,7 @@ function TableComponent() {
       <tbody>
         {returnUsers()}
       </tbody>
-    </Table> : 'Loading...'}
+    </Table> : <span style={{color: 'white'}}>Loading...</span>}
     
     </>
   );

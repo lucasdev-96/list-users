@@ -25,3 +25,10 @@
     color: #bbbbbb;
     margin-right: 5px;
 }
+
+@media (max-width: 720px)
+{
+    .fatherPagination {
+        margin-bottom: 90px;
+    }
+}
