@@ -6,10 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-responsive-select/dist/react-responsive-select.css';
 import { Home } from './Pages/Home';
 import { UserContextProvider } from './Context/UserContextProvider';
+import NotFound from './Components/NotFound';
 const router = createBrowserRouter([
   {
     path: "/",
     element: Home(),
+  },
+  {
+    path: '*',
+    element: NotFound()
   },
   {
     path: "/user/:username",

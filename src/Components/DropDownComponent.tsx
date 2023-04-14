@@ -12,6 +12,7 @@ function DropDownComponent() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
+        <Dropdown.Item onClick={() => setGender('')}>All</Dropdown.Item>
         <Dropdown.Item onClick={() => setGender('male')}>Male</Dropdown.Item>
         <Dropdown.Item onClick={() => setGender('female')}>Female</Dropdown.Item>
       </Dropdown.Menu>

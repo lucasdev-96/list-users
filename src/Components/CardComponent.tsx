@@ -9,6 +9,8 @@ import { RiCellphoneFill } from 'react-icons/ri'
 import { HiLocationMarker } from 'react-icons/hi'
 import { BsSignpostFill } from 'react-icons/bs'
 import '../css/card.css'
+import { Link } from 'react-router-dom';
+import NotFound from './NotFound';
 
 function CardComponent() {
     const [user, setUser] = useState<IUser>(userInfosInitial)
@@ -24,26 +26,33 @@ function CardComponent() {
 
     }, [])
   return (
-    <Card  className='card-user'  border='secondary'>
-      <Card.Img variant="top" className='card-user-img' bsPrefix='card-user-img' src={user.picture.large} />
-      <Card.Body>
-        <Card.Title>{`${user.name.title} ${user.name.first} ${user.name.last} `}</Card.Title>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item><FaUserAlt/>  {user.login.username}</ListGroup.Item>
-        <ListGroup.Item><MdEmail /> {user.email}</ListGroup.Item>
-        <ListGroup.Item><RiCellphoneFill /> {user.cell} / {user.phone}</ListGroup.Item>
-        <ListGroup.Item><FaRegAddressCard /> {user.id.name}: {user.id.value}</ListGroup.Item>
-        <ListGroup.Item><span className='spanInfos'>Date of birth: </span>{date}</ListGroup.Item>
-        <ListGroup.Item><span className='spanInfos'>Age:</span> {user.dob.age}</ListGroup.Item>
-        <ListGroup.Item><span className='spanInfos'>Country:</span> {user.location.country}</ListGroup.Item>
-        <ListGroup.Item><span className='spanInfos'>State:</span> {user.location.state}</ListGroup.Item>
-        <ListGroup.Item><span className='spanInfos'>City:</span> {user.location.city}</ListGroup.Item>
-        <ListGroup.Item><HiLocationMarker />  <span className='spanInfos'>Street:</span> {user.location.street.number} {user.location.street.name}</ListGroup.Item>
-        <ListGroup.Item><BsSignpostFill /> <span className='spanInfos'>Post code:</span>  {user.location.postcode}</ListGroup.Item>
-
-      </ListGroup>
-    </Card>
+    <>
+    {
+    user.email === '' ? 
+    <NotFound /> 
+    : <Card  className='card-user'  border='secondary'>
+    <Card.Img variant="top" className='card-user-img' bsPrefix='card-user-img' src={user.picture.large} />
+    <Card.Body>
+      <Card.Title>{`${user.name.title} ${user.name.first} ${user.name.last} `}</Card.Title>
+    </Card.Body>
+    <ListGroup className="list-group-flush">
+      <ListGroup.Item><FaUserAlt/>  {user.login.username}</ListGroup.Item>
+      <ListGroup.Item><MdEmail /> {user.email}</ListGroup.Item>
+      <ListGroup.Item><RiCellphoneFill /> {user.cell} / {user.phone}</ListGroup.Item>
+      <ListGroup.Item><FaRegAddressCard /> {user.id.name}: {user.id.value}</ListGroup.Item>
+      <ListGroup.Item><span className='spanInfos'>Date of birth: </span>{date}</ListGroup.Item>
+      <ListGroup.Item><span className='spanInfos'>Age:</span> {user.dob.age}</ListGroup.Item>
+      <ListGroup.Item><span className='spanInfos'>Country:</span> {user.location.country}</ListGroup.Item>
+      <ListGroup.Item><span className='spanInfos'>State:</span> {user.location.state}</ListGroup.Item>
+      <ListGroup.Item><span className='spanInfos'>City:</span> {user.location.city}</ListGroup.Item>
+      <ListGroup.Item><HiLocationMarker />  <span className='spanInfos'>Street:</span> {user.location.street.number} {user.location.street.name}</ListGroup.Item>
+      <ListGroup.Item><BsSignpostFill /> <span className='spanInfos'>Post code:</span>  {user.location.postcode}</ListGroup.Item>
+      <ListGroup.Item><button className='buttonUserInfos' onClick={() => localStorage.removeItem('user')}><Link to={`/`}>Back</Link></button></ListGroup.Item>
+    </ListGroup>
+  </Card>
+    }
+    </>
+    
   );
 }
 
