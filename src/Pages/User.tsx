@@ -1,8 +1,9 @@
+import { UserComponent } from "../Components/UserComponent"
 
 export const User = () => {
     return (
-        <div>
-            User
-        </div>
+        <>
+        <UserComponent />
+        </>
     )
 }

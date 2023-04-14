@@ -2,12 +2,12 @@
     padding: 3px;
     margin-left: 1px;
     margin-right: 1px;
-    background-color: black;
-    color: red  ;
+    background-color: #15181d;
+    color: #bbbbbb  ;
 }
 
 .fatherPagination {
-    background-color: black;
+    background-color: #15181d;
     padding: 10px;
     border-radius: 10px;
 
@@ -16,12 +16,12 @@
 .fatherPagination > div > select {
     margin-right: 15px;
     padding: 3px;
-    background-color: black;
-    color: blue;
+    background-color: #15181d;
+    color: #bbbbbb;
 }
 
 
 .fatherPagination > div > span {
-    color: blue;
+    color: #bbbbbb;
     margin-right: 5px;
 }

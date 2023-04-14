@@ -1,22 +1,20 @@
 import React, { ReactNode, createContext, useEffect, useState } from "react";
 import { getAllUsers } from "../Api/users";
+import { IUser } from "../interface/UserInterface";
 
 type UserContextProps = {
   children: ReactNode;
 };
 
-interface User {
-  value: {
-    results: []
-  };
 
-}
 
 interface UserContextValue {
-  usersPagination: User[];
-  setUsersPagination: React.Dispatch<React.SetStateAction<User[]>>;
-  users: User[];
-  setUsers: React.Dispatch<React.SetStateAction<User[]>>;
+  user: {};
+  setUser: React.Dispatch<React.SetStateAction<{}>>;
+  usersPagination: IUser[];
+  setUsersPagination: React.Dispatch<React.SetStateAction<IUser[]>>;
+  users: IUser[];
+  setUsers: React.Dispatch<React.SetStateAction<IUser[]>>;
   gender: string;
   setGender: React.Dispatch<React.SetStateAction<string>>;
   nat: string;
@@ -24,6 +22,8 @@ interface UserContextValue {
 }
 
 export const UserContext = createContext<UserContextValue>({
+  user: {},
+  setUser: () => {},
   usersPagination: [],
   setUsersPagination: () => {},
   users: [],
@@ -35,10 +35,11 @@ export const UserContext = createContext<UserContextValue>({
 });
 
 export const UserContextProvider = ({ children }: UserContextProps) => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
   const [gender, setGender] = useState("");
   const [nat, setNat] = useState("");
-  const [usersPagination, setUsersPagination] = useState<User[]>([]);
+  const [usersPagination, setUsersPagination] = useState<IUser[]>([]);
+  const [user, setUser] = useState({});
   const setUsersFn = async () => {
     const users = await getAllUsers(nat, gender)
     setUsers(users.results);
@@ -56,7 +57,9 @@ export const UserContextProvider = ({ children }: UserContextProps) => {
     nat,
     setNat,
     usersPagination,
-    setUsersPagination
+    setUsersPagination,
+    user,
+    setUser
   };
 
   return (

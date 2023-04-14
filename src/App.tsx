@@ -5,15 +5,14 @@ import { User } from './Pages/User';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from './Pages/Home';
 import { UserContextProvider } from './Context/UserContextProvider';
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: Home(),
   },
   {
-    path: "/user/:id",
-    element: User()
+    path: "/user/:username",
+    element: User(),
   }
 ]);
 

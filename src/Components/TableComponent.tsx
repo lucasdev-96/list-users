@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import Table from 'react-bootstrap/Table';
 import { UserContext } from '../Context/UserContextProvider';
 import '../css/table.css'
+import { Link } from 'react-router-dom';
+import { GoEye } from 'react-icons/go'
 
 function TableComponent() {
-  const {usersPagination} = useContext(UserContext)
+  const {usersPagination, setUser} = useContext(UserContext)
   const returnUsers = () => {
-    return usersPagination ? usersPagination.map((value: any, index: any) => {
+    return usersPagination ? usersPagination.map((value: any, index: number) => {
       return (
         <tr key={index}>
           <td>{index + 1}</td>
@@ -14,6 +16,7 @@ function TableComponent() {
           <td>{`${value.name.first} ${value.name.last}`}</td>
           <td>{value.location.country}</td>
           <td>{value.login.username}</td>
+          <td> <button className='buttonUserInfos' onClick={() => localStorage.setItem('user', JSON.stringify(value))}><Link to={`/user/${value.login.username}`}><GoEye /></Link></button></td>
           </tr>
 
       )
@@ -29,6 +32,7 @@ function TableComponent() {
           <th>Name</th>
           <th>Country</th>
           <th>Username</th>
+          <th>More Infos</th>
         </tr>
       </thead>
       <tbody>
