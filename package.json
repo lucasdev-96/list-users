@@ -1,6 +1,5 @@
 {
   "name": "users",
-  "homepage": "https://github.com/lucasdev-96/list-users",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
